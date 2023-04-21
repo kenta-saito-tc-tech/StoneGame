@@ -1,11 +1,7 @@
 public class BasicMethod {
     /**
-     * 一行改行
+     * 一行ライン
      */
-    public static void oneNewLine(){
-        System.out.println();
-    }
-
     public static void oneNewBorderLine(){
         System.out.println("-----------------");
     }

@@ -117,5 +117,17 @@ public class StoneGame {
         }
         return getHowManyStone();
     }
+
+    /**
+     * 勝者と敗者を表示するメソッド
+     * @param winName 勝者の名前
+     * @param looseName 敗者の名前
+     */
+    public void winLooseShow(String winName, String looseName){
+        Scanner scn = new Scanner(System.in);
+        System.out.println("勝者:" +winName);
+        System.out.println("敗者:" + looseName);
+        scn.close();
+    }
 }
 
