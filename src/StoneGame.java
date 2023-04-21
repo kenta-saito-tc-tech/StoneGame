@@ -45,15 +45,29 @@ public class StoneGame {
      * ゲームのセッティングをするメソッド
      */
     public void gameSetting() {
+        int inputStone = -1; //仮
+        int inputSteal = -1; //仮
         BasicMethod.oneNewBorderLine();
         Scanner scn = new Scanner(System.in);
         System.out.println("石取りゲームを開始します。");
-        System.out.print("石の総数は?>>");
-        setHowManyStone(scn.nextInt()); //総数セット
+        while(inputStone < 10 || inputStone > 100){
+            System.out.print("石の総数は?>>");
+            inputStone = scn.nextInt();
+            if(inputStone < 10 || inputStone > 100){
+                System.out.println("10~100の間でお願いします");
+            }
+        }
+        setHowManyStone(inputStone); //総数セット
         System.out.print("石のイニシャルは?>>");
         setStoneInitial(scn.next()); //イニシャルセット
-        System.out.print("１度に取れる石の数は?>>");
-        setHowManySteal(scn.nextInt()); //取れる個数セット
+        while(inputSteal < 1 || inputSteal > 10){
+            System.out.print("１度に取れる石の数は?>>");
+            inputSteal = scn.nextInt();
+            if(inputSteal < 1 || inputSteal > 10){
+                System.out.println("1~10の間でお願いします");
+            }
+        }
+        setHowManySteal(inputSteal); //取れる個数セット
     }
 
     /**

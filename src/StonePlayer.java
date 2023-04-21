@@ -16,8 +16,8 @@ public class StonePlayer {
         return this.name;
     }
 
-    public void setName(String name, int i) {
-        this.name[i] = name;
+    public void setName(String[] name) {
+        this.name = name;
     }
 
     public int getHowManyPeople() {
@@ -36,13 +36,38 @@ public class StonePlayer {
      * 人数と名前のセッティングメソッド
      */
     public void peopleSetting() {
+        int inputName = -1; //仮
         BasicMethod.oneNewBorderLine();
         Scanner scn = new Scanner(System.in);
         System.out.print("何人参加しますか?>>");
         setHowManyPeople(scn.nextInt());
-        System.out.println("参加する方の名前を入力してください↓");
-        for (int i = 0; i < getHowManyPeople(); i++) {
-            setName(scn.next(), i);
+        while (inputName < 2 || inputName > 24){
+            System.out.println("参加する方の名前をカンマ区切りで入力してください↓");
+            String NameAll = scn.next();
+            setName(NameAll.split(","));
+            for (int i = 0; i < getHowManyPeople(); i++) {
+                inputName = getName()[i].length();
+                if(inputName < 2 || inputName > 24){
+                    System.out.println("2文字~24文字の間でお願いします");
+                    break;
+                }
+            }
         }
     }
+
+    /**
+     * 人数と名前のセッティングメソッド
+     *(名前を一行一行格納する場合)
+     /*
+     public void peopleSetting() {
+     BasicMethod.oneNewBorderLine();
+     Scanner scn = new Scanner(System.in);
+     System.out.print("何人参加しますか?>>");
+     setHowManyPeople(scn.nextInt());
+     System.out.println("参加する方の名前を入力してください↓");
+     for (int i = 0; i < getHowManyPeople(); i++) {
+     setName(scn.next(), i);
+     }
+     }*/
+
 }
